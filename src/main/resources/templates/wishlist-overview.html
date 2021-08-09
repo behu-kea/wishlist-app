@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:include="fragments/head :: headerFragment">
+    <title id="pageTitle">All wishlists</title>
+</head>
+<body>
+<div th:replace="fragments/nav :: nav"></div>
+    <div class ="container">
+        <div class="row">
+            <div class="card-deck mb-3 text-center">
+                <div th:each="wishlist : ${allWishlists}" class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title"><span th:text="${wishlist.getTitle()}"></span></h5>
+                        <a href="#" class="btn btn-primary">Go to wish list</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-deck mb-3">
+            <div class="card-body text-center">
+                <h5 class="card-title"><span> Create new wishlist</span></h5>
+                <form method="post" action="/wishlists/new-wishlist">
+                    <input type="text" name="title"></input>
+                </form>
+                <a href="#" class="btn btn-secondary">➕</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
