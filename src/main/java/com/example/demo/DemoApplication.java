@@ -17,7 +17,10 @@ public class DemoApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        //Insert some stuff in the database
+//      Insert some stuff in the database
+//        insertData();
+    }
+    public static void insertData(){
         WishlistRepository wishlistRepo = new WishlistRepository();
         WishRepository wishRepo = new WishRepository();
 
@@ -40,8 +43,5 @@ public class DemoApplication implements CommandLineRunner {
         wishRepo.createWish(w4,1);
         wishRepo.createWish(w5,1);
         wishRepo.createWish(w6,2);
-
-
-
     }
 }
