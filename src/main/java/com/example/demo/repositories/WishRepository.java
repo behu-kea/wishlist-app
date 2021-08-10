@@ -7,8 +7,9 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class WishRepository {
+    private final Connection conn = DatabaseManager.getConnection();
+
     public void createWish(Wish wishFromUser, int wishlist) {
-        Connection conn = DatabaseManager.getConnection();
 
         try {
             PreparedStatement createWishQuery = conn.prepareStatement("INSERT INTO wishes(title,link,price,wish_description,fk_wishlist) VALUES(?,?,?,?,?)");

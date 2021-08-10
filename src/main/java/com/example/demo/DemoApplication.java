@@ -18,7 +18,7 @@ public class DemoApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 //      Insert some stuff in the database
-//        insertData();
+//      insertData();
     }
     public static void insertData(){
         WishlistRepository wishlistRepo = new WishlistRepository();

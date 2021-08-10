@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping("/wishlists")
 public class WishlistController {
-    WishlistService wishlistService = new WishlistService();
+    private final WishlistService wishlistService = new WishlistService();
 
     @GetMapping("/all")
     public String wishlistOverview(Model model) {
@@ -17,14 +17,8 @@ public class WishlistController {
     }
 
     @PostMapping("/new-wishlist")
-    public String addWishlistPostRequest(@RequestBody String title) {
+    public String addWishlistPostRequest(@RequestParam String title) {
         wishlistService.createWishlist(title);
-        return "redirect:/wishlist/overview";
-    }
-
-    @GetMapping("/{id}")
-    public String getWishlist(@PathVariable("id") int id) {
-        return null;
-        //return wishlistService.getWishlist(id).toString();
+        return "redirect:/wishlists/all";
     }
 }

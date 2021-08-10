@@ -7,7 +7,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class WishlistRepository {
-    private Connection databaseConnection = DatabaseManager.getConnection();
+    private final Connection databaseConnection = DatabaseManager.getConnection();
 
     public void createWishlist(String title) {
         try {
@@ -60,7 +60,6 @@ public class WishlistRepository {
             System.out.println("Could not find wishlist");
             System.out.println(e.getMessage());
         }
-
         return wishlist;
     }
 }
